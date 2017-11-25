@@ -1,0 +1,26 @@
+
+
+body{
+    position: relative;
+}
+#auther{
+    margin-top:60px;
+    display: block;
+    height: 400px;
+}
+#auther{
+    background-image: url("http://opmtmxzaj.bkt.clouddn.com/bj2.jpg");
+    color: #9acfea;
+}
+#demo{
+    padding-top: 10px;
+}
+#link{
+    background-color: #0f0f0f;
+}
+
+
+
+
+/*-----*/
+
