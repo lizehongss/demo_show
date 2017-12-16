@@ -1,0 +1,184 @@
+
+*{
+	-webkit-box-sizing: border-box;
+	transition: background .2s;
+	outline: 0;
+}
+body{
+	background-color: #00494b;
+	color: #fff;
+}
+.container{
+	max-width: 900px;
+	margin: 0 auto;
+	position: relative;
+	padding: 0 10px;
+}
+h1{
+	text-align: center;
+}
+.task-list{
+	margin:10px 0;
+}
+input,task-item,button{
+	border-radius: 4px;
+	padding: 10px;
+}
+
+input[type=date]{
+	float: left;
+	display: block;
+	width: 100%;
+	border:0;
+	background:#eee;
+}
+input[type=text]:hover,
+input[type=date]:hover,
+input[type=text]:focus,
+input[type=date]:focus
+{
+	background:#fff;
+}
+button{
+	display: inline-block;
+	cursor: pointer;
+	border:0;
+	color: #333;
+}
+ input[type=text]{
+ 	border:0;
+ 	display: block;
+	float: left;
+	width: 84%;
+	margin-right:1%;
+}
+ .btn{
+	width: 15%;
+	background:#46b1e4;
+	box-shadow: 0.5;
+}
+ .btn:hover{
+	background: #5fb9e4;
+}
+.task-item{
+	padding: 10px;
+	background:#fff;
+	color: #333;
+	margin-bottom: 2px;
+	border-radius:3px;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+	cursor: pointer;
+	transition: background .1s;
+
+}
+.task-item:hover{
+	background-color: #ccc;
+}
+.task-detail{
+	position: absolute;
+	overflow: auto;
+	bottom: 0;
+	background:#fff;
+	padding: 10px;
+	right: 0;
+	width: 50%;
+	color: #333;
+	display: none;
+
+}
+.task-detail >*{
+	margin-bottom: 10px;
+}
+.task-detail-mask{
+	display: none;
+	position: absolute;
+	top: 0;
+	bottom:0;
+	right: 0;
+	left: 0;
+	background:rgba(30,30,30,.6);
+	border-radius: 3px;
+	padding: 10px;
+
+}
+.task-detail .content{
+	padding: 10px;
+	font-weight: 900;
+	cursor: pointer;
+}
+textarea{
+	border-radius: 3px;
+	padding: 10px;
+	width: 100%;
+	border:0;
+	min-height: 100px;
+	background-color: #334;
+}
+.action{
+	color: #888;
+	font-size: 90%;
+}
+.action:hover{
+	color: #333;
+}
+.fc{
+	float: right;
+}
+.task-content{
+	margin-left: 10px;
+}
+.completed{
+	color: #aaa;
+	background: rgba(255,255,255,.8);
+}
+.task-item.completed:after{
+
+		content: "";
+		height: 1px;
+		background:#aaa;
+		width: 100%;
+		position: relative;
+		top:-10px;
+		display: block;
+}
+.msg{
+	display:none;
+	text-align: center;
+	background: #ffe264;
+	padding: 10px;
+	color: #333;
+}
+.anchor{
+	cursor: pointer;
+}
+.alerter{
+	width: 0;
+	height: 0;
+}
+label{
+	float: left;
+	display: block; 
+	margin-top: 10px;
+}
+.primary{
+	background: #46b1e4;
+	position: absolute;
+	bottom: 5px;
+	left: 10px;
+}
+.cancel{
+	position: absolute;
+	bottom: 5px;
+	right: 10px;
+}
+.pop-title{
+	margin-top:60px;
+}
+.confirmed{
+	background: #ddd;
+    width: 100px;
+    display: block;
+    position: relative;
+    left: 45%;
+    top: 5px;
+}
