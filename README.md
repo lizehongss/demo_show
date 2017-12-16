@@ -11,7 +11,7 @@
 - 使用jquery的ajax调用维基接口
 - [展示地址](https://codepen.io/lizehong/pen/pWYMev)(源码在codepen上)
 ## jquery应用清单
-- 主要使用jquery实现，数据存储用[store.js](https://github.com/marcuswestin/store.js),日期显示用[datetimepicker](https://github.com/xdan/datetimepicker)
+- 学习[慕课网](https://coding.imooc.com/class/72.html)的视频完成，主要使用jquery实现，数据存储用[store.js](https://github.com/marcuswestin/store.js),日期显示用[datetimepicker.js](https://github.com/xdan/datetimepicker)
 - [展示地址](https://lizehongss.github.io/demo_show/jquery%E5%BA%94%E7%94%A8/index.html)
 
 
