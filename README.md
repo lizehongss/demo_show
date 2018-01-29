@@ -15,7 +15,7 @@
 - [展示地址](https://lizehongss.github.io/demo_show/jquery%E5%BA%94%E7%94%A8/index.html)
 ## html canvas应用
 - 一个关于canvas在网页背景的应用
-- [展示地址]()
+- [展示地址](https://lizehongss.github.io/demo_show/canvas网页背景/index_hover.html)
 
 
 
