@@ -1,0 +1,40 @@
+/*#one{
+	height:700px;
+	width:400px;
+	background-color: #fff;
+}*/
+p{
+	line-height: 12px;
+	color: #a5a7c6;
+	font-size: 30px;
+}
+#boy,#gird,#set{
+	color: #2c3285;
+	width:20px;
+	height: 20px;
+}
+label{
+	color: #2c3285;
+	font-size: 30px;
+}
+.clo_ok,.clo{
+	width:100px;
+	height: 50px;
+	margin-left: 20px;
+}
+.clo_ok{
+	color: #fff;
+	background-color: blue;
+}
+.clo{
+	background-color: red;
+	color: #eee;
+}
+.btn{
+	position: relative;
+}
+#text{
+	border:solid 1px #f00; 
+	border-radius:20px; 
+	resize:none;
+}
