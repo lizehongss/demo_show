@@ -1,0 +1,259 @@
+
+*{
+    margin: 0;
+}
+img{
+    border: 0;
+}
+
+
+
+#wrap{
+    height: auto;
+    min-width: 1280px;
+    max-width: 1920px;
+    margin: 0 auto;
+    background-color: #F8EAC7;
+}
+
+.conter {
+    min-width: 1280px;
+    max-width: 1920px;
+    margin: 0 auto;
+    background-color: #F8EAC7;
+    background: url("img/gezx_bg.jpg") no-repeat scroll center top;
+
+}
+#bmain{
+
+    width: 1200px;
+    position: relative;
+    margin: 0 auto;
+
+}
+.logn{
+    width:205px;
+    height: 87px;
+    position: relative;
+    top:25px;
+    left:498px;
+}
+#slogan{
+    position: relative;
+    top:23px;
+    left:296px;
+
+
+
+}
+.art{
+
+    position:relative;
+
+    top:35px;
+    color: #E9905B;
+    font-size: 20px;
+    line-height: 5px;
+    text-align: center;
+
+}
+
+.btn{position:absolute;left: 0;width: 100%;}
+.btn1,.btn2,.btn3,.btn4{display:block;height:69px;width:228px;margin-bottom:20px}
+.btn1{background-image:url(img/sprite/ganenzx.png);background-position:0 -72px}
+.btn2{background-image:url(img/sprite/ganenzx.png);background-position:0 -143px}
+.btn2:hover{background-image:url(img/sprite/ganenzx.png);background-position:0 0px}
+.btn3{background-image:url(img/sprite/ganenzx.png);background-position:0 -214px}
+.btn3:hover{background-image:url(img/sprite/ganenzx.png);background-position:0 -285px}
+.btn4{background-image:url(img/sprite/ganenzx.png);background-position:0 -356px}
+.btn4:hover{background-image:url(img/sprite/ganenzx.png);background-position:0 -427px}
+.nav{
+    float: right;
+    position: relative;
+    top: -318px;
+    left:-150px;
+}
+.ref-link{
+    text-decoration: none;
+    font-size: 14px;
+    color: #8C583A;
+    margin-right: 14px;
+
+}
+.ref-link:hover  {
+    color: #e9583f;
+    cursor: hand;
+}
+#icon, .ref-link {
+    float: right;
+}
+#icon{
+    margin-top: 1px;
+
+}
+.ref-link {
+    float: right;
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
+    color: #8C583A;
+    margin-right: 14px;
+}
+
+
+#icon .NIE-share-iconBtn a {
+    font-size: 20px;
+    line-height: 20px;
+    color: #8c583a;
+    cursor: hand;
+}
+.NIE-share span{
+    color: #8c583a;
+}
+#icon .NIE-share-iconBtn a:hover,.ref-link:hover  {
+    color: #e9583f;
+    cursor: hand;
+}
+#main{
+    position: relative;
+    width: 100%;
+    margin-top: 50px;
+}
+.left{
+    position: absolute;
+    left: 0;
+
+}
+
+
+.right {
+
+    position:relative;
+    margin-left:276px;
+    height: 100%;
+    width: 924px;
+}
+
+.right h2{
+    color:#B73013;
+    font-size: 48px;
+    line-height: 48px;
+    text-align: center;
+}
+.l-line{
+    left: 0px;
+    position: absolute;
+    top: 24px;
+    width: 310px;
+    height: 3px;
+    background-color: #B73013;
+
+
+}
+.l-line1{
+    right: 0;
+    position:absolute;
+    top: 24px;
+    width: 310px;
+    height: 3px;
+    background-color: #B73013;
+
+}
+.right h3{
+    color:#B73013;
+    font-size: 40px;
+    line-height: 40px;
+}
+.art3{
+
+    color: #ff0000;
+    text-indent: 3em;
+    font-size: 14px;
+    line-height: 14px;
+    margin-top: 25px;
+    margin-bottom: 35px;
+}
+.art4{
+    font-size: 14px;
+    color: #4c2a22;
+    line-height: 20px;
+    margin-top: 30px;
+    margin-left: 3em;
+}
+.bottom {
+
+    width: 770px;
+    margin: 0 auto;
+
+}
+thead{
+    background-color: #b73013;
+    color: #f6ebe9;
+}
+td,thead{
+    width: 108px;
+    height: 36px;
+
+}
+.art5{
+    color:#b73013;
+}
+table{
+    width: 770px;
+    margin: 44px 0 58px 0;
+    border-collapse: collapse;
+
+}
+table, td {
+
+    border: solid 1px #B32F07;
+    text-align: center;
+}
+.art6{
+    text-decoration: underline;
+    color: #1200ff;
+}
+
+td a{
+    text-decoration: underline;
+    color:#1200FF;
+}
+td a:hover {
+    cursor: hand;
+    color: #ff2100;
+}
+
+
+.art7{
+    font-size: 14px;
+    text-align:left;
+    letter-spacing: normal;
+    margin-bottom: 70px;
+    list-style-type: none;
+
+
+}
+#footer{
+    height: 100px;
+    width: 100%;
+    min-width: 1280px;
+    background-color: #1d1a1c;
+}
+#footer span,#footer a{
+    color: #FFFFFF;
+}
+#NIE-copyRight {
+    padding-top: 20px;
+}
+.art1 {text-align: center;
+color:#380907;
+font-size: 16px;}
+#totop {
+    display: block;
+    position: fixed;
+    background-image: url(img/slice/totop.gif);
+    width: 28px;
+    height: 93px;
+    bottom: 100px;
+    right: 15px;
+}

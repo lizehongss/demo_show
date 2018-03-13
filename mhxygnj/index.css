@@ -1,0 +1,123 @@
+
+*{
+    margin: 0;
+}
+img{
+    border: 0;
+}
+a{  cursor: hand;
+    outline: none;
+}
+#footer{
+    position: relative;
+    height: 100px;
+    width: 100%;
+    min-width: 1280px;
+    background-color: #1d1a1c;
+}
+#footer span,#footer a{
+        color: #FFFFFF;
+    }
+#NIE-copyRight {
+        padding-top: 20px;
+    }
+#wrap{
+    overflow-x:hidden;
+    height: auto;
+    min-width: 1280px;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+#conter{
+    background: url("img/index_bg.jpg") no-repeat scroll center top;
+    min-width: 1280px;
+    max-width: 1920px;
+    margin: 0 auto;
+    height: 866px;
+}
+#main{
+    width: 1200px;
+    position:relative;
+    margin: 0 auto;
+}
+.logn{
+    width:205px;
+    height: 87px;
+    position: relative;
+    top:25px;
+    left:498px;
+}
+#slogan{
+   position: relative;
+    width:609px;
+    height: 264px;
+    top:23px;
+    left:296px;
+}
+.art{
+    position:relative;
+    top:35px;
+    color: #E9905B;
+    font-size: 20px;
+    line-height: 5px;
+    text-align: center;
+}
+.btn a {
+        width:324px;
+        height: 87px;
+        position: absolute;
+        cursor: hand;
+    }
+
+    .btn1{background-image:url(img/sprite/index.png);background-position:0 -90px;top:440px;left:399px}
+    .btn1:hover{background-image:url(img/sprite/index.png);background-position:0 -179px}
+    .btn2{background-image:url(img/sprite/index.png);background-position:0 -267px;top:550px;left:486px}
+    .btn2:hover{background-image:url(img/sprite/index.png);background-position:0 -1px}
+    .btn3{background-image:url(img/sprite/index.png);background-position:0 -357px;top:662px;left:568px}
+    .btn3:hover{background-image:url(img/sprite/index.png);background-position:0 -446px}
+.nav{
+    float: right;
+    position: absolute;
+    top: 39px;
+    right: 20px;
+}
+.nav > a{
+    display: block;
+    float: right;
+    padding-top:4px;
+    text-decoration: none;
+    font-size: 12px;
+    color: #8C583A;
+    margin-right: 12px;
+    line-height:12px;
+}
+.nav > a:hover {
+    color: #e9583f;
+    cursor: hand;
+}
+#icon, .ref-link {
+    float: right;
+}
+#icon{
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 12px;
+}
+#icon .NIE-share-iconBtn a {
+    font-size: 20px;
+    line-height: 20px;
+    color: #8c583a;
+    cursor: hand;
+}
+#icon .NIE-share span{
+    color: #8c583a;
+}
+#icon .NIE-share-iconBtn a:hover,.ref-link:hover  {
+    color: #e9583f;
+    cursor: hand;
+}
+
+
+
+
+

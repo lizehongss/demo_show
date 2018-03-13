@@ -1,0 +1,472 @@
+
+
+*{
+
+    margin: 0px;
+    padding: 0px;
+
+
+}
+area{
+    anything:expression(this.onfocus=this.blur);
+
+
+
+}
+map area{
+    outline: none;
+}
+
+
+#wrap{
+
+    min-width: 1280px;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+#ct{
+    background: url("img/bjt.png") no-repeat scroll center top;
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+    height: 890px;
+
+}
+#main{
+    position:relative;
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+
+
+}
+#ct p{
+    font-size: 18px;
+    color: #960f00;
+    position: absolute;
+    left: 410px;
+    top:360px;
+}
+ .logn{
+
+    top:25px;
+    display: block;
+    position:absolute;
+    height: 70px;
+    width: 173px;
+}
+#nav{
+    top:11px;
+    position: absolute;
+    width: 387px;
+    height: 29px;
+    right: 5px;
+    background-image: url("img/12.png");
+    background-repeat: no-repeat;
+
+
+}
+
+
+#icon{
+
+    margin-top:5px;
+
+
+}
+
+
+
+#nav > a{
+    color: #f8e8e9;
+    text-decoration: none;
+    margin-right: 17px;
+    font-size: 14px;
+    display: block;
+    float: left;
+    line-height: 28px;
+
+}
+#nav a:hover{
+    color: #ffec6d;
+    cursor: hand;
+
+}
+
+
+
+#icon .NIE-share-iconBtn a {
+    font-size: 25px;
+    line-height: 20px;
+    color: #f8e8e9;
+    cursor: hand;
+
+}
+ #icon .NIE-share span{
+    color: #f8e8e9;
+}
+#icon .NIE-share-iconBtn a:hover,#nav > a:hover  {
+    color: #ffec6d;
+    cursor: hand;
+}
+.btn a{
+    display: block;
+    cursor: hand;
+    width: 159px;
+    height:160px;
+    position: absolute;
+    background-repeat: no-repeat;
+
+}
+
+
+a.btn1 {background-image: url(img/CssGaga.png);  background-position: 0 0;  top: 0;  left: 87px;  }
+
+a.btn1.hover {  background-image: url(img/CssGaga.png);  background-position: -161px 0  }
+
+a.btn2 {  background-image: url(img/CssGaga.png);  background-position: -322px 0;  top: 0;  left: 254px;  }
+
+a.btn2.hover {
+    background-image: url(img/CssGaga.png);
+    background-position: -483px 0
+}
+
+a.btn3 {
+    background-image: url(img/CssGaga.png);
+    background-position: -644px 0;
+    top: 0;
+    left: 424px;
+}
+
+a.btn3.hover {
+    background-image: url(img/CssGaga.png);
+    background-position: -805px 0
+}
+
+a.btn4 {
+    background-image: url(img/CssGaga.png);
+    background-position: -966px 0;
+    top: 103px;
+    left: 0;
+}
+
+a.btn4.hover {
+    background-image: url(img/CssGaga.png);
+    background-position: -1127px 0
+}
+
+a.btn5 {
+    background-image: url(img/CssGaga.png);
+    background-position: -1288px 0;
+    top: 103px;
+    left: 170px;
+}
+
+a.btn5.hover {
+    background-image: url(img/CssGaga.png);
+    background-position: -1449px 0
+}
+
+a.btn6 {
+    background-image: url(img/CssGaga2.png);
+    background-position: 0 0;
+    top: 103px;
+    left: 339px;
+}
+
+a.btn6.hover {
+    background-image: url(img/CssGaga2.png);
+    background-position: -161px 0
+}
+
+a.btn7 {
+    background-image: url(img/CssGaga2.png);
+    background-position: -322px 0;
+    top: 103px;
+    left: 507px;
+}
+
+a.btn7.hover {
+    background-image: url(img/CssGaga2.png);
+    background-position: -483px 0
+}
+
+a.btn8 {
+    background-image: url(img/CssGaga2.png);
+    background-position: -644px 0;
+    top: 208px;
+    left: 87px;
+}
+
+a.btn8.hover {
+    background-image: url(img/CssGaga2.png);
+    background-position: -805px 0
+}
+
+a.btn9 {
+    background-image: url(img/CssGaga2.png);
+    background-position: -966px 0;
+    top: 208px;
+    left: 254px;
+}
+
+a.btn9.hover {
+    background-image: url(img/CssGaga2.png);
+    background-position: -1127px 0
+}
+
+a.btn10 {
+    background-image: url(img/CssGaga2.png);
+    background-position: -1288px 0;
+    top: 208px;
+    left: 424px;
+}
+
+a.btn10.hover {
+    background-image: url(img/CssGaga2.png);
+    background-position: -1449px 0
+}
+
+
+
+a.btn11{background-image: url("img/CssGaga1.png");background-position: -199px 0;top:785px;left: 469px; }
+a.btn11:hover{background-image: url("img/CssGaga1.png");background-position: 0 0;}
+a.btn11{
+
+    display: block;
+    position: absolute;
+    height:59px;
+    width:198px;
+    background-repeat: no-repeat;
+
+
+}
+   .map_nav img {
+    position: absolute;
+    top: 410px;
+    left: 237px;
+    width: 666px;
+    height: 369px;
+    border: none;
+}
+
+.btn {
+    position: absolute;
+    width: 666px;
+    height: 369px;
+    left: 233px;
+    top: 391px;
+
+}
+
+#footer {
+    position: relative;
+    height: 104px;
+    width: 100%;
+    min-width: 1280px;
+    max-width: 1920px;
+    background-color: #FA92A4;
+    text-align: center;
+}
+
+#NIE-copyRight {
+
+   padding-top: 10px;
+}
+
+#NIE-copyRight, #NIE-copyRight a {
+    color: #FFFFFF;
+}
+
+
+
+#NIE-topBar .NIE-topBar-mid a:hover{
+    display: inline-block;
+
+
+}
+
+
+
+
+
+
+
+ .tc{
+    background-image: url("img/tc1.png");
+    height:546px;
+    width: 903px;
+    background-repeat: no-repeat;
+    top:76px;
+    left:309px;
+    position: fixed;
+    z-index: 10000;
+    display:none;
+}
+
+  .tc .cont{
+
+    width:890px;
+    height:400px;
+    overflow:auto;
+    position: absolute;
+    top:70px;
+
+}
+.tc .time{
+    margin-top: 20px;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+ .tc h4{
+    margin-bottom: 10px;
+    color: #b21400;
+    text-align: center;
+    font-size: 30px;
+    line-height: 50px;
+
+}
+.tc h5{
+
+    margin-bottom: 35px;
+    float: left;
+    width:858px;
+
+
+}
+ .tc strong{
+    background-image: url("img/dcjx.png");
+    width: 106px;
+    height: 31px;
+    margin-left: 20px;
+    line-height: 30px;
+    color: #b21400;
+    text-align: center;
+    font-size: 18px;
+
+}
+ .time strong{
+    display: inline-block;
+    float: left;
+}
+.tc span{
+
+    width: 660px;
+
+    margin-left: 10px;
+    float: left;
+    text-align: left;
+    line-height: 30px;
+    display: inline-block;
+    font-size: 16px;
+    color: #ffffff;
+
+}
+
+.tc table {
+
+    border-collapse: collapse;
+
+
+}
+
+.tb1 table {width: 666px;
+    margin-bottom: 50px;
+    margin-left: 100px;
+}
+.tc table,.tc td,.tc th{
+    border: solid 1px #790808;
+    text-align: center;
+}
+
+.tc thead {
+    background-color: #931707;
+    color: white;
+    font-size: 16px;
+}
+
+.tc td{
+    padding: 10px 0 ;
+    text-align: center;
+    color: #ffcd5c;
+    font-size: 14px;
+}
+.tc .sm{
+    width: 143px;
+}
+.tc .sm1{
+    width:98px;
+}
+.tc .tb2 table{
+    margin-left: 50px;
+    width: 799px;
+    margin-bottom: 50px;
+}
+
+.tc .ckga{
+
+    width: 806px;
+
+}
+.tc .ckga strong{
+    display: block;
+
+}
+
+
+
+.tc .ckga ol{
+
+    color: white;
+    margin-left: 20px;
+    width: 806px;
+    margin-top:10px;
+    display: block;
+    list-style-type: none;
+
+}
+.tc .ckga a{
+    color: #ffcd5c;
+    font-size: 18px;
+    display: block;
+    float: right;
+}
+#hidden .mCSB_dragger,
+#hidden .mCSB_dragger_bar{
+    width: 10px;
+    height: 47px;
+    background-color: #FFCD5C;
+}
+
+#hidden .mCSB_draggerRail,
+#hidden .mCSB_draggerContainer {
+    width: 10px;
+    background-color: #790808;
+    height: 333px;
+}
+.tc .close{
+    background-image: url("img/close.png");
+    width: 35px;
+    height: 34px;
+    position: absolute;
+    right:18px;
+    top:12px;
+    display: block;
+
+
+}
+ .tc-bg{
+    position: absolute;
+    width: 100%;
+    background: #000 none repeat scroll 0 0;
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    min-width: 1280px;
+     display: none;
+
+}
+
+
