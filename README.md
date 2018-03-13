@@ -24,7 +24,10 @@
 ## vue调查问卷
 - vue学习的一个小demo,按钮封装成组件
 - [展示地址](https://lizehongss.github.io/demo_show/调查问卷/index.html)
+##　静态页面效果展示　**请勿用于商业用途**
 
+- [展示地址]（https://lizehongss.github.io/demo_show/tx3/index.html）
+-[展示地址]（https://lizehongss.github.io/demo_show/mhxygnj/index.html）
 
 
 
