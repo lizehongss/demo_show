@@ -1,0 +1,252 @@
+#nav_3
+{
+    width: 1050px;
+    margin: 0 auto;
+    margin-top: 100px; 
+    text-align: center;
+}
+#nav_3 .nav_earch
+{
+    display: inline-block;
+}
+#inputSearch
+{
+    width: 490px;
+    height: 36px;
+
+    border: 2px solid #c5464a;
+    border-radius: 5px;
+    background: transparent;
+}
+#button_search
+{
+    width: 100px;
+    height: 36px;
+
+    color: #000;
+    border-radius: 0 5px 5px 0;
+    background: #c5464a;
+}
+#nav_3 .search_nav
+{
+    text-align: center;
+}
+#nav_3 .search_nav ul
+{
+    display: inline-block;
+
+    margin-top: 20px;
+
+    text-decoration: none;
+    /*margin: 0 auto;*/
+}
+#nav_3 .search_nav ul li
+{
+    float: left;
+
+    width: 70px;
+
+    list-style: none;
+
+    text-align: center;
+
+    border-right: 1px solid #c5464a;
+}
+#nav_3 .search_nav ul li a
+{
+    font-size: 15px;
+
+    display: block;
+
+    text-decoration: none;
+}
+#nav_3 .search_nav ul li a:hover
+{
+    text-decoration: none;
+}
+
+
+/* ------content------- */
+
+.content
+{
+    position: relative;
+}
+.main_nav
+{
+    width: 1050px;
+    height: 40px;
+	position: relative;
+    background-color: yellow;
+    text-align: center;
+    margin-left: 300px;
+}
+.content_left
+{
+    position: absolute;
+	width:180px;
+	height:670px;
+    z-index: 100;
+    top:92px;
+    left: 166px;
+}
+.nav_name span{
+    display: block;
+    width: 180px;
+    height:35px;
+    line-height: 35px;
+    font-size: 20px;
+    background-color: red;
+    color: #990000;
+    border-bottom: 1px solid #000;
+}
+
+.content_nav{
+     background-color: rgba(0,0,0,0.5);
+    /* IE9、标准浏览
+    器、IE6和部分IE7内核的浏览器(如QQ浏览器)会读懂 */
+}
+@media \0screen\,screen\9 {/* 只支持IE6、7、8 */
+  .content_nav{
+    background-color:#000000;
+    filter:Alpha(opacity=50);
+    position:static; 
+    /* IE6、7、8只能设置position:static(默认属性) ，
+    否则会导致子元素继承Alpha值 */
+    *zoom:1; 
+    /* 激活IE6、7的haslayout属性，让它读懂Alpha */
+  }
+}
+/*.content_nav ul{
+}*/
+.content_nav ul li{
+    line-height: 29px;
+    width: 290px;
+    height: 29px;
+    margin-left: 10px;
+    list-style: none;
+    color: #fff;
+}
+.content_nav ul li a{
+    text-decoration: none;
+    color: #fff;
+}
+.content_nav ul li a:hover{
+    text-decoration: none;
+}
+#img_lb
+{
+    position: relative;
+	width: 1180px;
+	height: 500px;
+    /*background-color: red; */
+    margin: 0 auto;
+    overflow: hidden;
+}
+.main_nav ul{
+        display: inline-block;
+} 
+.main_nav ul li{
+    float: left;
+    width:70px;
+    height: 35px;
+    margin-right: 5px;
+    list-style: none;
+    text-align: center;
+}
+.main_nav ul li a{
+    display: block;
+    color:#555;
+    background-color: transparent;
+    font-size: 12px;
+    height:35px;
+    text-decoration: none;
+    line-height: 35px;
+}
+
+.main_nav ul li a:hover{
+    text-decoration: none;
+    color: #fff;
+}
+.hidden_nav .hidden_navshow{
+        position: absolute;
+        background-color: #fff;
+        width: 800px;
+        height: 500px;
+        top:170px;
+        left: 180px;
+        display: none;       
+}
+.hidden_nav .hidden_navshow .left{
+        float: left;
+        width: 600px;
+}
+
+.hidden_nav .hidden_navshow .left .part{
+        clear: both;
+        margin-top:5px;
+}
+.hidden_nav .hidden_navshow .left .part h3{
+        font-size: 15px;
+        line-height: 15px;
+        float: left;
+
+}
+.hidden_nav .hidden_navshow .left .part .hover_show{
+        margin-right: 10px;
+}
+.hidden_nav .hidden_navshow .left .part a{
+        display: block;
+        float: left;
+        font-size: 15px;
+        line-height: 15px;
+        text-decoration: none;
+        border-color: transparent;
+        color: #555;
+        margin-right: 10px;
+        margin-top: 15px;
+}
+.hidden_nav .hidden_navshow .left .part a:hover{
+        text-decoration: none;
+        color: #fff;
+
+}
+.hidden_nav .hidden_navshow .right{
+        float:right;
+        width:200px;
+        
+}
+.hidden_nav .hidden_navshow .right .img{
+    width: 90px;
+    height: 69px;
+    background-color:yellow;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+#img_lb div li{
+
+	background: #000;
+    width: 25px;
+    height: 5px;
+    display: inline-block;
+    overflow: hidden;
+    margin-left: 5px;
+    cursor: pointer;
+    opacity: .3;
+}
+#img_lb div {
+		position: absolute;
+	
+		top:472px;
+		left:550px;
+
+}
+#img_lb .chos{
+	color: #FFFFFF;
+
+}
+/* -------cont样式-------- */
+.cont{
+    
+}
