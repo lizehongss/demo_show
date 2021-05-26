@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>任务7</title>
+    <style>
+        .box{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border: 1px solid #000;
+            width: 30%;
+            height: 80%;
+        }
+        .box-one{
+            margin: 20px auto;
+            width: 1500px;
+            height: 200px;
+        }
+        .btn-wap{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 0 auto;
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+<div class="box-one box">a
+    <div class="box-two box">b
+        <div class="box-four box">c
+            <div class="box-ten box">o</div>
+            <div class="box-eleven box">p</div>
+            <div class="box-eight box">d</div>
+            <div class="box-nine box">e</div>
+        </div>
+        <div class="box-five box">n
+
+        </div>
+        <div class="box-b box">2
+            <div class="box-c box">3</div>
+            <div class="box-d box">4</div>
+        </div>
+    </div>
+    <div class="box-three box">f
+        <div class="box-six box">g
+            <div class="box-twelve box">h</div>
+            <div class="box-thirteen box">j</div>
+            <div class="box-fifteen box">m</div>
+        </div>
+        <div class="box-seven box">k
+            <div class="box-fourteen box">l</div>
+
+        </div>
+        <div class="box-e box">4</div>
+    </div>
+    <div class="box-a box">1
+
+    </div>
+</div>
+<div class="btn-wap">
+    <button id="traverse" type="button">traverseDF</button>
+    <input type="text" id="text">
+    <button id="find" type="button">查询</button>
+    <button id="remove" type="button">删除</button>
+    <input id="add_value" type="text">
+    <button id="add" type="button">添加</button>
+</div>
+<script>
+    var root = document.querySelector('.box-one');
+    var traverse = document.getElementById("traverse");
+    var inOrder = document.getElementById("inOrder");
+    var postOrder = document.getElementById("postOrder");
+    var find = document.getElementById("find");
+    var text = document.getElementById("text");
+    var remove = document.getElementById("remove");
+    var add_value = document.getElementById("add_value");
+    var add=document.getElementById("add");
+    var arr = [];
+    var value = [];
+    var exit=false ;
+    traverse.onclick = function () {
+        var i=0;
+        var arr = [];
+        var value = [];
+        traverseDF(root,arr,value);
+        setAction(arr,i);
+    }
+    find.onclick = function () {
+        var i = 0;
+        arr =[];//清除
+        value =[];
+        traverseDF(root, arr, value);
+        S_setAction(arr, i);
+
+    }
+    remove.onclick =function () {
+        var all = document.querySelectorAll('.box');
+        for(var i=0;i<all.length;i++){
+            if(all[i].style.backgroundColor=="red"){
+                if(i==0){
+                    alert("该节点无法删除!!")
+                    break;
+                }
+                all[i].outerHTML = "";
+                break;
+            }
+            else if(i==all.length-1){
+                alert("请标记元素");            }
+        }
+    }
+    add.onclick = function () {
+        var all = document.querySelectorAll('.box')
+        for(var i=0;i<all.length;i++){
+            if(all[i].style.backgroundColor=="red"){
+                if(add_value.value==""){alert("请输入文本内容");}
+                var new_div = document.createElement("div");
+                new_div.innerHTML=add_value.value;
+                new_div.setAttribute("class","box");
+                all[i].appendChild(new_div);
+                break;
+            }
+            else if(i==all.length-1){
+                alert("请标记元素");
+            }
+        }
+    }
+    function setAction(arr,i) {
+        let timer = setInterval(function () {
+            if(i > arr.length -1 ){
+                arr[arr.length -1].style.backgroundColor = "#fff";
+                clearInterval(timer);
+                return
+            }
+            else {
+                changeStyle(arr[i]);
+            }
+            ++i;
+        },500);
+    }
+    function changeStyle(el) {
+        var nodeArr = document.querySelectorAll('.box');
+        for (var i=0 ;i<nodeArr.length;i++){
+            nodeArr[i].style.backgroundColor = '#fff';
+        }
+        el.style.backgroundColor = '#337ab7';
+    }
+    function S_setAction(arr,i) {
+        let timer = setInterval(function () {
+            if(i > arr.length -1 ){
+                //解决最后的清除问题
+                if(arr[arr.length -1].style.backgroundColor!=='red' ){
+                    arr[arr.length -1].style.backgroundColor = "#fff";}
+                var nodeArr = document.querySelectorAll('.box');
+                for (var j=0 ;j<nodeArr.length;j++){
+                    if((nodeArr[j].style.backgroundColor)=='red'){
+                        exit = true;//是否有查找的值
+                    }
+
+                }
+                if(exit==false){
+                    alert("不存在");        }
+                clearInterval(timer);
+                return
+            }
+            else {
+                S_changeStyle(i);
+            }
+            ++i;
+        },500);
+    }
+    function S_changeStyle(i) {
+        var nodeArr = document.querySelectorAll('.box');
+        for (var j=0 ;j<nodeArr.length;j++){
+            if((nodeArr[j].style.backgroundColor)!=='red')//标识查找的值
+                nodeArr[j].style.backgroundColor = '#fff';
+        }
+        if(value[i] ==text.value){
+            arr[i].style.backgroundColor = 'red';
+        }
+        else{
+            arr[i].style.backgroundColor = '#337ab7';
+        }
+
+
+
+    }
+    function traverseDF(callback,arr,value) {
+        arr.push(callback);
+        value.push(callback.firstChild.nodeValue.trim());
+        for(var i=0;i<callback.children.length;i++){
+            //  arr.push(callback.children[i]);
+            traverseDF(callback.children[i],arr,value);
+
+        }
+    }
+    /*点击 事件   */
+    div = document.querySelectorAll('.box');
+    for(let i = 0; i < div.length; i++) {
+        div[i].onclick = function(e) {
+           e.stopPropagation(); // 阻止点击事件向上冒泡
+            for(let i = 0; i < div.length; i++) {
+                div[i].style.backgroundColor = "#fff";
+            }
+            this.style.backgroundColor = "red";
+        };
+    }
+</script>
+</body>
+</html>

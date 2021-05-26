@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>任务一</title>
+	<style>
+		article{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			margin:0 auto;
+			height: 400px;	
+		}
+		span{
+			transition: all 2s;
+			-webkit-transition:all 2s;
+			-moz-transition:all 2s;
+			-o-transition:all 2s;
+			color:#000;	
+			position: relative;		
+		}
+		span:after{
+			content: "";
+			width: 0px;
+			height: 1px;
+			background-color: blue;
+			position: absolute;
+			top: 100%;
+			left: 50%;
+			transition:all 2s;
+			-webkit-transition:all 2s;
+			-moz-transition:all 2s;
+			-o-transition:all 2s;
+		}
+		#btn{
+			-webkit-border-radius:10%;
+			-moz-border-radius:10%;
+			border-radius: 10%;
+			cursor: pointer;
+			background-color: #ddd;
+			margin-top:50px;
+		}
+		.line{
+			color:#5931ce;
+		}
+		.line:after{
+			left:0%;
+			top:100%;
+			width: 100%;
+		}
+	
+	</style>
+</head>
+<body>
+	<article>
+		<span id="content">前端学院</span>
+		<div id="btn">切换样式</div>
+	</article>
+	
+<script>
+	var btn=document.getElementById('btn');
+	var cont=document.getElementById('content');
+	function hasClass( elements,cName ){  
+   		return !!elements.className.match( new RegExp( "(\\s|^)" + cName + "(\\s|$)") );
+    	// ( \\s|^ ) 判断前面是否有空格 （\\s | $ ）判断后面是否有空格 两个感叹号为转换为布尔值 以方便做判断  
+		};
+	function addClass(elements,cName){
+	if(!hasClass(elements,cName)){
+		elements.className+=' '+cName;
+				}
+	};
+	function removeClass(elements,cName){
+	if(hasClass(elements,cName)){
+		elements.className=elements.className.replace( new RegExp( "(\\s|^)" + cName + "(\\s|$)" )," " );
+	}
+	};
+
+	btn.addEventListener("click", function(){
+		addClass(cont,"line");
+	});
+	cont.addEventListener("transitionend",function(){
+		removeClass(cont,'line');
+	})
+</script>
+</body>
+</html>

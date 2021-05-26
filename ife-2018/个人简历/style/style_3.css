@@ -1,0 +1,26 @@
+h2{
+	display: block;
+	float: left;
+}
+.info b{
+	display: block;
+}
+.info{
+	margin-left: 2rem;
+	float: left;
+}
+.clear{
+	clear: both;
+	height: 0;
+}
+dl{
+	float: left;
+	margin-left: 2rem;
+}
+ul{
+	margin-left:7rem;
+}
+.right{
+	float: left;
+	margin-left:2rem;
+}

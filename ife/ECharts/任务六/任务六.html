@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>任务四</title>
+    <script src="three.js"></script>
+    <script src="stats.min.js"></script>
+    <script src="TrackballControls.js"></script>
+    <script src="OBJLoader.js"></script>
+</head>
+<body>
+<canvas id="mainCanvas"></canvas>
+<script type="text/javascript">
+    var EventUtil  = {
+        addHandler: function (element,type,handler) {
+            if(element.addEventListener){
+                element.addEventListener(type,handler,false);
+            }else if(element.attachEvent){
+                element.attachEvent("on"+type,handler);
+            }else {
+                element["on"+ type] = handler;
+            }
+        },
+        getEvent:function (event) {
+            return event ? event:window.event;
+        },
+        getTarget:function (event) {
+            return event.target || event.srcElement;
+        },
+        preventDefault:function (event) {
+            if(event.preventDefault){
+                event.preventDefault();
+            }else {event.returnValue = false;}
+        },
+        removeHandler: function (element,type,handler) {
+            if(element.removeEventListener){
+                element.removeEventListener(type,handler,false);
+            }else if(element.detachEvent){
+                element.detachEvent("on"+type,handler);
+            }else {
+                element["on"+type] = null;
+            }
+        },
+        stopPropagatio: function (event) {
+            if(event.stopPropagation){
+                event.stopPropagation();
+            }else {
+                event.cancelBubble = true;
+            }
+                    }
+    };//跨浏览器
+    var scene = null;
+    var camera = null;
+    var  renderer = null;
+    var mesh_car = null;
+    var mesh_lo1 = null;
+    var mesh_lo2 = null;
+    var mesh_lo3 = null;
+    var mesh_lo4 = null;
+    var mesh_plane = null;
+    var container = null;
+    init();
+    animate();
+
+    function init() {
+        stat = new Stats();
+        stat.domElement.style.position = 'absolute';
+        stat.domElement.style.right = '0px';
+        stat.domElement.style.top = '0px';
+        document.body.appendChild(stat.domElement);
+        renderer = new THREE.WebGLRenderer({
+            canvas: document.getElementById('mainCanvas')
+        });
+        renderer.setClearColor(0xccccff);
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        renderer.shadowMapSoft=true;
+        renderer.shadowMap.Enabled = true;
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 1000 );
+        camera.position.set(5,5,5);
+        camera.lookAt(new THREE.Vector3(0,0,0));
+       controls = new THREE.TrackballControls( camera );
+        controls.rotateSpeed = 2.0;
+        controls.zoomSpeed = 1.2;
+        controls.panSpeed = 1.8;
+        controls.noZoom = false;
+        controls.noPan = false;
+        controls.staticMoving = true;
+        controls.dynamicDampingFactor = 0.3;
+        controls.keys = [ 65, 83, 68 ];
+        controls.addEventListener( 'change', render );
+        var loader  = new THREE.OBJLoader();
+
+        loader.load('car/Lancer_Evolution_10.obj',function (obj) {
+            obj.traverse(function (child) {
+                if(child instanceof THREE.Mesh){
+                    child.material = new THREE.MeshLambertMaterial({
+                        color:0xfffff00
+                    });
+                }
+            });
+             obj.scale.set(0.01,0.01,0.01);
+            //obj.position.set(0,0,5);
+            obj.rotation.x=-Math.PI/2;
+            scene.add(obj);
+        });
+       // obj.scale.set(5,5,5);
+        var car = new THREE.CubeGeometry(1,1,1);
+        var lo1 = new THREE.TorusGeometry(0.2,0.08,8,20);
+        var lo2 = new THREE.TorusGeometry(0.2,0.08,8,20);
+        var lo3 = new THREE.TorusGeometry(0.2,0.08,8,20);
+        var lo4 = new THREE.TorusGeometry(0.2,0.08,8,20);
+        var plane = new THREE.PlaneGeometry(2,2);
+        var car_material = new THREE.MeshLambertMaterial({
+            color:0xffff00
+        });
+      /* var imgmaterial = [];
+        for(var i=1;i<7;++i){
+        imgmaterial.push(new THREE.MeshBasicMaterial({
+            map : new THREE.ImageUtils.loadTexture('img/'+i+'.jpg',{},function () {
+                renderer.render(scene,camera);
+            }),
+            overdraw:true
+        }));
+        }
+       var img_material = new  THREE.Mesh(new THREE.MeshLambertMaterial(imgmaterial));*/
+
+        var plane_material = new THREE.MeshLambertMaterial({
+            color:0xcccccc
+        });
+        mesh_car = new THREE.Mesh(car,car_material);
+        mesh_lo1 = new THREE.Mesh(lo1,car_material);
+        mesh_lo2 = new THREE.Mesh(lo1,car_material);
+        mesh_lo3 = new THREE.Mesh(lo1,car_material);
+        mesh_lo4 = new THREE.Mesh(lo1,car_material);
+        mesh_plane = new THREE.Mesh(plane,plane_material);
+        mesh_car.castShadow = true;
+        mesh_plane.receiveShadow = true;
+        mesh_plane.rotation.x=-Math.PI/2;
+        mesh_car.scale.set(0.4,0.4,0.4);
+        mesh_lo1.scale.set(0.4,0.4,0.4);
+        mesh_lo2.scale.set(0.4,0.4,0.4);
+        mesh_lo3.scale.set(0.4,0.4,0.4);
+        mesh_lo4.scale.set(0.4,0.4,0.4);
+        mesh_plane.position.set(0,-0.28,0);
+        mesh_lo1.position.set(-0.2,-0.2,0.2);
+        mesh_lo2.position.set(0.2, -0.2, 0.2);
+        mesh_lo3.position.set(0.2, -0.2, -0.2);
+        mesh_lo4.position.set(-0.2, -0.2, -0.2);
+       scene.add(mesh_car);
+        scene.add(mesh_lo1);
+        scene.add(mesh_lo2);
+        scene.add(mesh_lo3);
+        scene.add(mesh_lo4);
+        scene.add(mesh_plane);
+        light = new THREE.DirectionalLight();
+        light.position.set(0,0.5,0.5);
+        light.castShadow = true;
+        light.shadow.CameraNear=-1;
+        light.shadow.CameraFar = 1;
+        light.shadow.CameraLeft = 1;
+        light.shadow.CameraRight = -1;
+        light.shadow.CameraTop = 0.5;
+        light.shadow.CameraBottom =1;
+        light.shadow.CameraVisible  = true;
+        scene.add(light);
+        //renderer.render(scene,camera);
+        // container = document.getElementById('mainCanvas');
+      //  container.appendChild(renderer.domElement);
+       // stats = new Stats();
+     //   container.appendChild(stats.dom);
+        window.addEventListener('resize',onWindowResize,false)
+        id = requestAnimationFrame(draw);
+        render();
+    }
+    function draw(){
+        stat.begin();
+        document.onkeydown =function (e) {
+            var e = EventUtil.getEvent(event);
+            switch (e.keyCode){
+                case 87:
+                    mesh_car.position.x = mesh_car.position.x + 0.1;
+                   mesh_lo1.position.x = mesh_lo1.position.x + 0.1;
+                    mesh_lo2.position.x = mesh_lo2.position.x + 0.1;
+                      mesh_lo3.position.x = mesh_lo3.position.x + 0.1;
+                       mesh_lo4.position.x = mesh_lo4.position.x + 0.1;
+                    break;
+                case 83:
+                    mesh_car.position.x = mesh_car.position.x-0.1;
+                        mesh_lo1.position.x = mesh_lo1.position.x-0.1;
+                        mesh_lo2.position.x = mesh_lo2.position.x-0.1;
+                        mesh_lo3.position.x = mesh_lo3.position.x-0.1;
+                        mesh_lo4.position.x = mesh_lo4.position.x-0.1;
+                    break;
+                case 65:
+                    mesh_car.position.z = mesh_car.position.z +0.1;
+                        mesh_lo1.position.z = mesh_lo1.position.z + 0.1;
+                        mesh_lo2.position.z = mesh_lo2.position.z + 0.1;
+                        mesh_lo3.position.z = mesh_lo3.position.z + 0.1;
+                        mesh_lo4.position.z = mesh_lo4.position.z + 0.1;
+                    break;
+                case 68:
+                    mesh_car.position .z = mesh_car.position.z-0.1;
+                    mesh_lo1.position.z = mesh_lo1.position.z - 0.1;
+                    mesh_lo2.position.z = mesh_lo2.position.z - 0.1;
+                    mesh_lo3.position.z = mesh_lo3.position.z -0.1;
+                    mesh_lo4.position.z = mesh_lo4.position.z - 0.1;
+                    break;
+            }
+        }
+        render();
+        id = requestAnimationFrame(draw);
+    stat.end();
+    }
+   function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        controls.handleResize();
+        render();
+
+   }
+   function animate() {
+        requestAnimationFrame( animate );
+        controls.update();
+    }
+    function render() {
+        renderer.render( scene, camera );
+     // stats.update();
+    }
+
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>example</title>
+</head>
+<body>
+<div id="canvas" ></div>
+
+<script src="three.js"></script>
+<script src="TrackballControls.js"></script>
+<script src="stats.min.js"></script>
+<script>
+    //if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+    var container ,stats;
+    var camera,controls, scene, renderer;
+    var cross;
+    init();
+    animate();
+    function init() {
+        camera = new THREE.PerspectiveCamera(60,window.innerWidth/window.innerHeight,1,100);
+        camera.position.z=500;
+        controls = new THREE.TrackballControls(camera);
+        controls.rotateSpeed=1.0;
+        controls.zoomSpeed=1.2;
+        controls.panSpeed = 0.8;
+        controls.noZoom = false;
+        controls.noPan = false;
+        controls.staticMoving = true;
+        controls.dynamicDampingFactor=0.3;
+        controls.keys = [65,83,68];
+        controls.addEventListener('change',render);
+        scene = new THREE.Scene();
+        scene.fog=new THREE.FogExp2(0xcccccc,0.002);//定义指数雾
+        var geometry = new THREE.CylinderGeometry(0,10,30,4,1); //定义一个锥体
+        var material = new THREE.MeshPhongMaterial({color:0xffffff,shading:THREE.FlatShading});
+        for(var i=0;i<500;i++){
+            var mesh = new THREE.Mesh(geometry,material);
+            mesh.position.x = (Math.random()-0.5)*1000;//随机选取大于等于 0.0 且小于 1.0 的伪随机
+            mesh.position.y = (Math.random()-0.5)*1000;//随机选取大于等于 0.0 且小于 1.0 的伪随机
+            mesh.position.z= (Math.random()-0.5)*1000;//随机选取大于等于 0.0 且小于 1.0 的伪随机
+            mesh.updateMatrix();//
+            mesh.matrixAutoUpdate = false;//手动更新矩阵
+            scene.add(mesh);
+        }
+    light = new THREE.DirectionalLight(0xffffff);
+        light.position.set(1,1,1);
+        scene.add(light);
+    renderer = new THREE.WebGLRenderer({antialias:false});
+        renderer.setClearColor(scene.fog.color);//设置清除的颜色和透明度
+        renderer.setPixelRatio(window.devicePixelRatio);//设置设备像素比
+        renderer.setSize(window.innerWidth,window.innerHeight);//调整输出canvas尺寸（宽度，高度）
+        container = document.getElementById('canvas');
+        container.appendChild(renderer.domElement);
+        stats = new Stats();
+        container.appendChild(stats.dom);
+        window.addEventListener('resize',onWindowResize,false);
+        render();
+    }
+    function onWindowResize() {
+
+        camera.aspect = window.innerWidth/window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth,window.innerHeight);
+        controls.handleResize();
+        render();
+    }
+    function animate() {
+        requestAnimationFrame(animate);
+        controls.update();
+
+    }
+    function  render() {
+        renderer.render(scene,camera);
+        stats.update();
+
+    }
+</script>
+</body>
+</html>

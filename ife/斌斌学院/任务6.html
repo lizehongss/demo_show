@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>任务四</title>
+    <meta charset="utf-8">
+    <style>
+        #result {
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+        #result div {
+            background-color: pink;
+            height: 30px;
+            line-height: 30px;
+            min-width: 30px;
+            text-align: center;
+            margin: 5px;
+        }
+
+        #result span {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<textarea  id="text"></textarea>
+<button id="left_in">写入</button>
+<button id="left_out">左侧出</button>
+<button id="right_out">右侧出</button>
+<input id="findtext" type="text">
+<button id="find">查询</button>
+<div id="result">
+</div>
+<script>
+    var left_in = document.getElementById("left_in");
+    var right_in = document.getElementById("right_in");
+    var left_out = document.getElementById("left_out");
+    var right_out = document.getElementById("right_out");
+    var ul = document.getElementById("result");
+    var text = document.getElementById("text");
+    var numlist = document.getElementById("ul");
+    var find = document.getElementById("find");
+    var findtext = document.getElementById("findtext");
+    var arr = [];
+    left_in.onclick = function (){
+        var result = new Array();
+          result=hf(text.value);
+        arr = arr.concat(result);
+            render();
+    }
+    left_out.onclick = function (){
+        ul.firstChild.remove();
+        alert(ul.firstChild.childNodes);
+    }
+    right_out.onclick = function () {
+        ul.lastChild.remove();
+        alert(ul.firstChild.childNodes);
+    }
+    find.onclick = function () {
+        var str = findtext.value.trim();
+        render(str);
+    }
+    numlist.addEventListener("click",function (e) {
+        if(event.target.nodeName.toLowerCase()=="div"){
+            console.log(event.target);
+//	event.target.parentNode.removeChild(event.target);
+            numlist.removeChild(event.target);
+        }
+    })
+    function hf(textvalue) {
+        var hs = new Array();
+        var hs0 = new Array();
+        hs= textvalue;
+     hs0 = textvalue.split(/[^0-9a-zA-Z\u4e00-\u9fa5]+/);
+        return hs0;
+    }
+    function render(str) {
+        ul.innerHTML = arr.map(function(d) {
+            if (str != null && str.length > 0) {
+                d = d.replace(new RegExp(str, "g"), "<span class='select'>" + str + "</span>");
+            }
+            return '<div>' + d + '</div>';
+        }).join('');
+    }
+
+</script>
+</body>
+</html>

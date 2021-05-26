@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css布局</title>
+	<style>
+		*{
+			box-sizing: border-box;
+		}
+		.header{
+			width: 100%;
+			background-color: #000;
+		}
+		.title{
+			max-width: 960px;
+			overflow: hidden;
+			color: #fff;
+			margin:0 auto;
+		}
+		.title_logo{
+			float: left;
+			font-size: 30px;
+		}
+		.title_nav{
+			float: right;
+		}
+		.title_nav ul{
+			list-style: none;
+		}
+		.title_nav li{
+			float: right;
+			margin-right: 5px;
+		}
+		.title_nav a{
+			color: #fff;
+			text-decoration: none;
+		}
+		.title_nav a:hover{
+			color: #ddd;
+		}
+		.banner{
+			width: 100%;
+			background-color:#40da58;
+			height: 200px;
+			position: relative;
+		}
+		.banner_nav{
+			position: absolute;
+			right: 5px;
+			bottom: 0;
+		}
+		.banner_nav ul{
+			list-style: none;
+		}
+		.banner_nav .nav_li{
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			background-color: #ddd;
+			margin-left: 5px;
+			text-align: center;
+		}
+		.banner_nav a{
+			line-height: 20px;
+			color: #ffe;
+			text-decoration: none;
+		}
+		.click{
+			display: inline-block;
+			background-color: #eee;
+			text-align: center;
+			line-height: 25px;
+			height: 25px;
+			width: 20px;
+		}
+		.article_nav{
+			width:100%;
+			border-bottom:1px solid #ddd;
+			background-color: #fff;
+			
+		}
+		.section_nav{
+			width: 960px;
+			position:relative;
+			height: 60px;
+			margin: 0 auto;
+		}
+		.section_nav ul{
+			list-style: none;
+			position: absolute;
+			bottom: -1px;
+			margin:0;
+			padding: 0;
+			background-color: #fff;
+		}
+		.section_nav .default{
+			display: inline-block;
+			width: 80px;
+			height: 40px;
+			line-height: 40px;
+			border-radius: 25% 25% 0 0;
+			border:1px solid #ddd;
+			text-align: center;
+			background-color: #eee;
+		}
+		.watch{
+			display: inline-block;
+			width: 80px;
+			height: 40px;
+			border-radius: 25% 25% 0 0;
+			border:1px solid #ddd;
+			border-bottom: #fff;
+			text-align: center;
+			line-height: 40px;
+
+		}
+		.section_nav a{
+			text-decoration: none;
+			color: #000;
+		}
+		.article_content{
+			width: 960px;
+			margin:0 auto;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+		}
+		div{
+			padding:80px;  	             
+			border:1px solid #ddd;
+			margin:5px;
+			flex:1;
+		}
+		footer{
+			width: 100%;
+			background-color: #000;
+		}
+		p{
+			position: relative;
+			text-align: center;
+			padding-bottom: 40px;
+			color: #ddd;
+		}
+	</style>
+</head>
+<body>
+	<header class="header">
+		<section class="title">
+			<h1 class="title_logo">Logo</h1>
+			<nav class="title_nav">
+				<ul>
+					<li><a href="#">Github</a></li>
+					<li><a href="#">Register</a></li>
+					<li><a href="#">Login</a></li>
+				</ul>
+			</nav>
+		</section>
+	</header>
+	<header class="banner">
+		<nav class="banner_nav">
+			<ul>
+				<li class="nav_li"><a href="#">1</a></li>
+				<li class="click"><a href="#">2</a></li>
+				<li class="nav_li"><a href="#">3</a></li>
+				<li class="nav_li"><a href="#">4</a></li>
+			</ul>
+		</nav>
+	</header>
+	<article>
+		<section class="article_nav">
+			<nav class="section_nav">
+				<ul>
+					<li class="default"><a href="#">HOME</a></li>
+					<li class="default"><a href="#">PROFLE</a></li>
+					<li class="watch"><a href="#">ABOUT</a></li>
+				</ul>
+			</nav>
+		</section>
+		<section class="article_content">
+			<div>This is Content 1</div>
+			<div>MaybeContent2</div>
+			<div>Content 3</div>
+			<div>Content 4</div>
+			<div>Content 5</div>
+			<div>Content 6</div>
+			<div>Content 7</div>
+			<div>Content 8</div>
+			<div>Content 9</div>
+			<div>Content 10</div>
+		</section>
+	</article>
+	<footer><p>©2018 ife.baidu.com</p></footer>
+</body>
+</html>

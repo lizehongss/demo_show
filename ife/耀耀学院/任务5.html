@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>任务5</title>
+    <style>
+
+        td{
+        // border: dotted;
+            width: 50px;
+            height: 50px;
+        }
+        #box{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            transform: rotate(0deg);
+            left: 12px;
+            top: 12px;
+            transition: all 2s;
+
+        }
+        #box1{
+            float: left;
+            width: 50px;
+            height: 40px;
+            background-color: black;
+        }
+        #box2{
+            float: left;
+            width: 50px;
+            height: 10px;
+            background-color: aqua;
+        }
+
+
+    </style>
+<body>
+<div id="conter">
+    <div id="box"><div id="box1"></div><div id="box2"></div></div>
+    <table>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+    </table>
+</div>
+<div id="action">
+    <input type="text" id="text">
+    <button id="btn">ok</button>
+</div>
+<script>
+    var box = document.getElementById("box");
+    var btn = document.getElementById("btn");
+    var text = document.getElementById("text");
+    var deg =0;
+
+    btn.onclick = function () {
+       // alert(text.value);
+        switch (text.value) {
+            case "TRA LEF":
+                var tops = box.offsetTop;
+                var lef= box.offsetLeft;
+                if(lef>12){
+                    box.style.left=lef+(-56)+"px";
+                }
+                break;
+            case "TRA TOP":
+                var tops = box.offsetTop;
+                var lef= box.offsetLeft;
+                if(tops<572){
+                    box.style.top=tops+56+"px";
+                }
+                break;
+            case "TRA RIG":
+                var tops = box.offsetTop;
+                var lef= box.offsetLeft;
+                if(lef<572){
+                    box.style.left=lef+56+"px";
+                }
+                break;
+            case "TRA BOT":
+                var tops = box.offsetTop;
+                var lef= box.offsetLeft;
+                if(tops>12){
+                    box.style.top=(tops-56)+"px";
+                }
+                break;
+            case "MOV LEF":
+                turn_left();
+                break;
+            case "MOV TOP":
+                turn_top();
+                break;
+            case "MOV RIG":
+                turn_right();
+                break;
+            case "MOV BOT":
+                turn_bace();
+                break;
+        }
+    }
+
+       /* if(deg<0){
+            deg=deg+360;
+        }
+        if(deg%360===0&&tops<556){
+            box.style.top=tops+56+"px";
+        }else if(deg%360===90&&lef>12){
+            box.style.left=lef+(-56)+"px";
+        }else if(deg%360===180&&tops>12){
+            box.style.top=(tops-56)+"px";
+        }else if(deg%360===270&&tops<572){
+            box.style.left=lef+56+"px";
+        }else{ return;}
+        */
+
+
+    function turn_left() {
+        var tops = box.offsetTop;
+        var lef= box.offsetLeft;
+        deg = deg-90;
+        box.style.transform = "rotate("+deg+"deg)";
+        if(lef>12){
+            box.style.left=lef+(-56)+"px";
+        }
+    }
+    function turn_right() {
+        var tops = box.offsetTop;
+        var lef= box.offsetLeft;
+        deg=deg+90;
+        box.style.transform = "rotate("+deg+"deg)";
+        if(lef<572){
+            var tops = box.offsetTop;
+            var lef= box.offsetLeft;
+            box.style.left=lef+56+"px";
+        }
+    }
+    function turn_bace() {
+        var tops = box.offsetTop;
+        var lef= box.offsetLeft;
+        deg = deg+180;
+        box.style.transform = "rotate("+deg+"deg)";
+        if(tops<572){
+            var tops = box.offsetTop;
+            var lef= box.offsetLeft;
+            box.style.top=tops+56+"px";
+        }
+
+    }
+    function turn_top() {
+        deg = deg-180;
+        box.style.transform = "rotate("+deg+"deg)";
+    }
+
+</script>
+</body>
+</html>

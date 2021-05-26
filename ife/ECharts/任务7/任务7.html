@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>任务7</title>
+    <script type="text/javascript" src="three.js"></script>
+    <script type="text/javascript" src="MTLLoader.js"></script>
+    <script type="text/javascript" src="OBJLoader.js"></script>
+    <script id="vs" type="x-shader/x-vertex">
+        uniform vec3 color;
+        uniform vec3 light;
+
+        varying vec3 vColor;
+        varying vec3 vNormal;
+        varying vec3 vLight;
+
+        void main()
+        {
+           vColor = color;
+           vNormal = normalize( normalMatrix*normal);
+
+           vec4 viewLight = viewMatrix * vec4(light,1.0);
+           vLight = viewLight.xyz;
+
+           gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0);
+        }
+    </script>
+    <script id="fs" type="x-shader/x-fragment">
+        varying vec3 vColor;
+        varying vec3 vNormal;
+        varying vec3 vLight;
+       void main () {
+        float silhouette = length(vNormal*vec3(0.0,0.0,1.0));
+        if(silhouette<0.5){
+        silhouette = 0.0;
+        }
+        else{
+        silhouette = 1.0;
+       }
+    float diffuse = dot(normalize(vLight),vNormal);
+    if(diffuse>0.8){
+    diffuse = 1.0;
+    }
+    else if(diffuse>0.5){
+    diffuse = 0.5;
+    }
+    else if(diffuse > 0.2){
+    diffuse = 0.4;}
+    else {
+    diffuse  = 0.2;
+    }
+    diffuse = diffuse * silhouette;
+    gl_FragColor  = vec4( vColor*diffuse,1.0);
+    }
+    </script>
+    <script type="text/javascript">
+        var scene = null;
+        var camera = null;
+        var renderer = null;
+        var mesh = null;
+        var id = null;
+        function init() {
+            renderer = new THREE.WebGLRenderer({
+                canvas: document.getElementById('mainCanvas')
+            });
+            renderer.setClearColor(0x000000);
+            scene = new THREE.Scene();
+            camera = new THREE.OrthographicCamera(-5, 5, 3.75, -3.75, 0.1, 100);
+            camera.position.set(15, 25, 25);
+            camera.lookAt(new THREE.Vector3(0, 2, 0));
+            scene.add(camera);
+            material  = new THREE.ShaderMaterial({
+                vertexShader: document.getElementById('vs').textContent,
+                fragmentShader:document.getElementById('fs').textContent
+            });
+            var loader = new THREE.OBJLoader();
+            loader.load('wbmx/port.obj',function (obj) {
+                obj.traverse(function (child) {
+                    if(child instanceof THREE.Mesh){
+                        child.material = material;
+                    }
+                });
+                mesh = obj;
+                scene.add(obj);
+            });
+            // material loader
+            var mtlLoader = new THREE.MTLLoader();
+            mtlLoader.setPath('wbmx/');
+            mtlLoader.load('port.mtl', function(materials) {
+                materials.preload();
+                // model loader
+                var objLoader = new THREE.OBJLoader();
+                objLoader.setMaterials(materials);
+                objLoader.setPath('wbmx/');
+                objLoader.load('port.obj', function ( object ) {
+                    object.position.y = - 95;
+                    // if has object, add to scene
+                    if (object.children.length > 0) {
+                        scene.add( object.children[0] );
+                    }
+                });
+            });
+
+            var light = new THREE.DirectionalLight(0xffffff);
+            light.position.set(20, 10, 5);
+            scene.add(light);
+
+            id = setInterval(draw, 20);
+        }
+
+        function draw() {
+            renderer.render(scene, camera);
+        }
+    </script>
+</head>
+<body onload="init()">
+<canvas id="mainCanvas" width="400px" height="300px" ></canvas>
+</body>
+</html>

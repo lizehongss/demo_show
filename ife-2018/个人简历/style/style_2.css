@@ -1,0 +1,22 @@
+*{
+	box-sizing: border-box;
+}
+body{
+	width: 90%
+	max-width:900px;
+	margin:0 auto;
+}
+aside{
+	width:30%;
+	float: left;
+}
+article{
+	width:66%;
+	float: right;
+}
+.info b{
+	display: block;
+}
+dd{
+	margin-top:.2rem;
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>任务7</title>
+    <style>
+        .box{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border: 1px solid #000;
+            width: 40%;
+            height: 80%;
+        }
+        .box-one{
+            margin: 20px auto;
+            width: 500px;
+            height: 200px;
+        }
+        .btn-wap{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 0 auto;
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+<div class="box-one box">
+    <div class="box-two box">
+        <div class="box-four box">
+            <div class="box-eight box"></div>
+            <div class="box-nine box"></div>
+        </div>
+        <div class="box-five box">
+            <div class="box-ten box"></div>
+            <div class="box-eleven box"></div>
+        </div>
+    </div>
+    <div class="box-three box">
+        <div class="box-six box">
+            <div class="box-twelve box"></div>
+            <div class="box-thirteen box"></div>
+        </div>
+        <div class="box-seven box">
+            <div class="box-fourteen box"></div>
+            <div class="box-fifteen box"></div>
+        </div>
+    </div>
+</div>
+<div class="btn-wap">
+    <button id="perOrder" type="button">前序</button>
+    <button id="inOrder" type="button">中序</button>
+    <button id="postOrder" type="button">后序</button>
+</div>
+
+<script>
+    var root = document.querySelector('.box-one');
+    var perOrder = document.getElementById("perOrder");
+    var inOrder = document.getElementById("inOrder");
+    var postOrder = document.getElementById("postOrder");
+    function  preOrders(node,arr) {
+        if(node !== null){
+            arr.push(node);
+            preOrders(node.firstElementChild,arr);
+            preOrders(node.lastElementChild,arr);
+        }
+    }
+    function inOrders(node,arr) {
+        if(node !==null){
+        inOrders(node.firstElementChild,arr);
+        arr.push(node);
+        inOrders(node.lastElementChild,arr);
+    }}
+    function postOrders(node,arr) {
+        if(node !==null){
+            preOrders(node.firstElementChild,arr);
+            preOrders(node.lastElementChild,arr);
+            arr.push(node);
+        }
+    }
+    perOrder.onclick = function () {
+        var i=0;
+        arr = [];
+        preOrders(root,arr);
+        setAction(arr,i);
+
+    }
+    inOrder.onclick = function () {
+        var i=0;
+        arr = [];
+        inOrders(root,arr);
+        setAction(arr,i);
+    }
+    postOrder.onclick = function () {
+        var i=0;
+        arr = [];
+        postOrders(root,arr);
+        setAction(arr,i);
+    }
+    function setAction(arr,i) {
+        let timer = setInterval(function () {
+            if(i > arr.length -1 ){
+                arr[arr.length -1].style.backgroundColor = "#fff";
+                clearInterval(timer);
+                return
+            }
+            else {
+                changeStyle(arr[i]);
+            }
+            ++i;
+        },500);
+    }
+    function changeStyle(el) {
+            var nodeArr = document.querySelectorAll('.box');
+        for (var i=0 ;i<nodeArr.length;i++){
+            nodeArr[i].style.backgroundColor = '#fff';
+        }
+        el.style.backgroundColor = '#337ab7';
+    }
+
+</script>
+</body>
+</html>

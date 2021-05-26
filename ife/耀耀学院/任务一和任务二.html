@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>任务一</title>
+    <style>
+        label{
+            color: aqua;
+            text-align:right;
+            display: inline-block;
+            width: 70px;
+
+        }
+        p{
+            display: block;
+            width: 400px;
+            font-size: 10px;
+            text-align:left;
+            margin-left: 100px;
+        }
+        #btn1{
+            margin-left: 200px;
+            background-color: blue;
+            border :2px solid blue;
+        }
+        input{
+            display:inline-block;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <label>名称:</label><input id="name" type="text">
+    <p id="show1"></p>
+    <label>密码</label><input id="pass" type="password">
+    <p id="show2"></p>
+    <label>密码确认</label><input id="sure_pass" type="password">
+    <p id="show3"></p>
+    <label>邮箱</label><input id="email"type="text">
+    <p id="show4"></p>
+    <label>手机</label><input id="phone" type="text">
+    <p id="show5"></p>
+    <button id="btn1">提交</button>
+
+    <script>
+    var btn1 = document.getElementById("btn1");
+    var text_value = document.getElementById("name");
+    var pass = document.getElementById("pass");
+    var sure_pass = document.getElementById("sure_pass");
+    var email = document.getElementById("email");
+    var phone = document.getElementById("phone");
+    var show1 = document.getElementById("show1");
+    var show2= document.getElementById("show2");
+    var show3 = document.getElementById("show3");
+    var show4 = document.getElementById("show4");
+    var show5= document.getElementById("show5");
+     function name () {
+        var patten = /^.{4,16}/;
+       // var chineseReg =/[\u4E00-\uFA29]|[\uE7C7-\uE7F3]/g;
+        if(patten.test(text_value.value)){
+           show1.innerHTML="名称格式正确";
+            show1.style.color ="blue";
+            text_value.style.border = '2px solid blue';
+            return true;
+        }
+        else if(text_value.value.length==0){
+            show1.innerHTML="姓名不能为空";
+            show1.style.color="red";
+            text_value.style.border = '2px solid red';
+            return false;
+        }
+        else{
+            show1.innerHTML="请输入长度为4~16位字符";
+            show1.style.color="red";
+            text_value.style.border = '2px solid red';
+            return false;
+        }
+    }
+     function Pass() {
+            if(pass.value==""){
+                show2.innerHTML="密码不能为空";
+                show2.style.color="red";
+                pass.style.border = '2px solid red'
+                return false;
+            }else{
+                show2.innerHTML="密码可用";
+                show2.style.color="blue";
+                pass.style.border='2px solid blue';
+                return true;
+            }
+    }
+    function Pass_sure() {
+        if(sure_pass.value==pass.value){
+            show3.innerHTML="密码一致";
+            show3.style.color="blue";
+            sure_pass.style.border='2px solid blue';
+            return true;
+        }
+        else{
+            show3.innerHTML="密码不同";
+            show3.style.color="red";
+            sure_pass.style.border='2px solid red';
+            return false;
+        }
+
+    }
+    function Email() {
+        var patten =/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+        if(patten.test(email.value)){
+            show4.innerHTML="邮箱正确";
+            show4.style.color="blue";
+            email.style.border='2px solid blue';
+            return true;
+        }
+        else {
+            show4.innerHTML="邮箱格式不正确";
+            show4.style.color="red";
+            email.style.border='2px solid red';
+            return false;
+        }
+    }
+    function Phone() {
+        var patten =/\d{11}/
+        if(patten.test(phone.value)){
+            show5.innerHTML="手机号码正确";
+            show5.style.color="blue";
+            phone.style.border='2px solid blue';
+            return true;
+        }
+        else{ show5.innerHTML="手机号码不正确";
+            show5.style.color="red";
+            phone.style.border='2px solid red';
+            return false;
+        }
+
+    }
+        text_value.onfocus = function () {
+            show1.innerHTML="必填";
+        }
+        text_value.onblur =function () {
+            show1.innerHTML="";
+        name();
+
+    }
+        pass.onfocus = function () {
+            show2.innerHTML="请输入密码"        }
+        pass.onblur = function () {
+            show2.innerHTML="";
+            Pass();
+        }
+        sure_pass.onfocus = function () {
+            show3.innerHTML="输入相同的密码"        }
+        sure_pass.onblur = function () {
+            show3.innerHTML=""
+            Pass_sure();
+        }
+        email.onfocus = function () {
+            show4.innerHTML="请输入邮箱";        }
+        email.onblur=function () {
+        show4.innerHTML="";
+        Email();
+    }
+        phone.onfocus =function () {
+            show5.innerHTML="请输入手机"
+        }
+        phone.onblur=function () {
+            show5.innerHTML = "";
+            Phone();
+        }
+        function Form() {
+            name();
+            Pass();
+            Pass_sure();
+            Email();
+            Phone();
+            if(name()&&Pass()&&Pass_sure()&&Email()&&Phone()){
+                alert("输入正确") ; }
+            else {
+        alert("输入不正确");
+    }}
+        btn1.onclick=function () {
+            Form();
+        }
+</script>
+</body>
+</html>

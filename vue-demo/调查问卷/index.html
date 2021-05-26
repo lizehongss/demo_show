@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>调查问卷</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="app">
+		<div id="one" v-show="one">
+			<p>1.请问你的性别是</p>
+			<input type="radio" v-model="picked" value="男" id="boy">
+			<label for="boy">男</label>
+			<input type="radio" v-model="picked" value="女" id="gird">
+			<label for="gird">女</label>
+			<input type="radio" v-model="picked" value="保密" id="set"> 
+			<label for="set">保密</label>
+			<div class="btn">
+			<mybutton :picked="picked" 
+			:nas="2"
+			@next_show="nextshow"></mybutton>
+			<debutton :value="picked"
+			@on_change="defcha"
+			></debutton>
+		</div>
+		</div>
+		<div id="two" v-show="two">
+			<p>2.请你选择你的兴趣爱好</p>
+			<span>最少选择2项，最多选择3项</span>
+			<br>
+			<input type="checkbox" v-model="checked" value="看书" id="1">
+			<label for="1">看书</label>
+			<br>
+			<input type="checkbox" v-model="checked" value="游泳" id="2">
+			<label for="2">游泳</label>
+			<br>
+			<input type="checkbox" v-model="checked" value="跑步" id="3">
+			<label for="3">跑步</label>
+			<br>
+			<input type="checkbox" v-model="checked" value="看电影" id="4">
+			<label for="4">看电影</label>
+			<br>
+			<input type="checkbox" v-model="checked" value="听音乐" id="5">
+			<label for="5">听音乐</label>
+			<div class="btn">
+				<mybutton :picked="checked" :nas="3" 
+				@next_show="nextshow"></mybutton>
+				<debutton :value="checked" @on_change="defcha"></debutton>
+				<lastbutton :las="1" @last_show="lastshow"></lastbutton>
+			</div>
+		</div>
+		<div id="three" v-show="three">
+			<p>3.请介绍一下自己</p>
+			<textarea v-model="text" placeholder="不少于100字" id="text" rows="3" cols="20"></textarea>
+			{{text.length}}
+			<div class="btn">
+				<send :value="text"></send>
+				<debutton :value="text" @on_change="defchb"></debutton>
+				<lastbutton :las="2" @last_show="lastshow"></lastbutton>
+			</div>
+		</div>
+	</div>
+	<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+	<script src="button.js"></script>
+	<script src="default.js"></script>
+	<script src="lastbtn.js"></script>
+	<script src="send.js"></script>
+	<script src="index.js"></script>
+</body>
+</html>

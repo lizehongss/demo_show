@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css transform</title>
+	<style>
+		div{
+			box-sizing: content-box;
+			background-color:#f7f6f6;
+			width:60px;
+			height:68px;
+			display: inline-block;
+			margin-right: 31px;
+			text-align: center;
+			line-height: 68px;
+		}
+		.two{
+			transform: skewX(30deg);
+			-webkit-transform:skewX(30deg);
+    		-moz-transform:skewX(30deg);
+    		-ms-transform:skewX(30deg);
+   			-o-transform:skewX(30deg);
+		}
+		.three{
+			-webkit-transform:scale(0.5,1);
+    		-moz-transform:scale(0.5,1);
+    		-ms-transform:scale(0.5,1);
+    		-o-transform:scale(0.5,1);
+    		transform:scale(0.5,1);
+		}
+		.four{
+			-webkit-transform: rotate(45deg);
+    		-moz-transform: rotate(45deg);
+    		-ms-transform: rotate(45deg);
+    		-o-transform: rotate(45deg);
+    		transform: rotate(45deg);
+		}
+		.five{
+			-webkit-transform: translate(10px,20px);
+    		-moz-transform: translate(10px,20px);
+    		-ms-transform: translate(10px,20px);
+    		-o-transform: translate(10px,20px);
+    		transform: translate(10px,20px);
+		}
+		.six{
+			-webkit-transform:skewX(30deg) scale(0.5,1) rotate(45deg) translate(10px,20px));
+    		-moz-transform:skewX(30deg) scale(0.5,1) rotate(45deg) translate(10px,20px));
+    		-ms-transform:skewX(30deg) scale(0.5,1) rotate(45deg) translate(10px,20px));
+    		-o-transform:skewX(30deg) scale(0.5,1) rotate(45deg) translate(10px,20px));
+    		transform: skewX(30deg) scale(0.5,1) rotate(45deg) translate(10px,20px);
+		}
+	</style>
+</head>
+<body>
+	<div class="one">box0</div>
+	<div class="two">box1</div>
+	<div class="three">box2</div>
+	<div class="four">box3</div>
+	<div class="five">box4</div>
+	<div class="six">box5</div>
+</body>
+</html>

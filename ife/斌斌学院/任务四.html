@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>任务四</title>
+    <meta charset="utf-8">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        ul {
+            margin-top: 20px;
+        }
+        li {
+            list-style: none;
+            display: inline;
+            background-color: RED;
+            padding: 5px 5px;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+<input type="text" id="text">
+<button id="left_in">左侧入</button>
+<button id="right_in">右侧入</button>
+<button id="left_out">左侧出</button>
+<button id="right_out">右侧出</button>
+<ul id="ul">
+    <li><span>10</span></li>
+    <li><span>3</span></li>
+    <li><span>7</span></li>
+    <li><span>12</span></li>
+    <li><span>11</span></li>
+    <li><span>30</span></li>
+</ul>
+<script>
+    var left_in = document.getElementById("left_in");
+    var right_in = document.getElementById("right_in");
+    var left_out = document.getElementById("left_out");
+    var right_out = document.getElementById("right_out");
+    var ul = document.getElementById("ul");
+    var text = document.getElementById("text");
+    //var num = text.value;
+
+
+    left_in.onclick = function (){
+        var li_text = document.createTextNode(text.value);
+        var li = document.createElement("li");
+        li.appendChild(li_text);
+        ul.insertBefore(li,ul.firstChild);
+    }
+    right_in.onclick = function (){
+        var li_text = document.createTextNode(text.value);
+        var li = document.createElement("li");
+        li.appendChild(li_text);
+        ul.appendChild(li);
+    }
+    left_out.onclick = function (){
+        ul.firstChild.remove();
+    }
+    right_out.onclick = function (){
+        ul.lastChild.remove();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css布局</title>
+	<style>
+		*{
+			box-sizing: border-box;
+		}
+		article{
+			height: 100%;
+		}
+		.box{
+			height: 200px;
+		}
+		.left{
+			background-color: #eec;
+		}
+		.right{
+			background-color: #ccc;
+		}
+		.middle{
+		background-color: #ede;
+		}
+		/*浮动布局*/
+		.father_float{
+			overflow: hidden;
+			width: 100%;
+			margin-bottom: 20px;
+		}
+		.left_float1{
+			float: left;
+			width: 30%;
+		}
+		.right_float1{
+			float: right;
+			width: 70%;
+		}
+		.left_float2{
+			float: left;
+			width: 200px;
+		}
+		.right_float2{
+			margin-left:200px; 
+		}
+		.left_float3{
+			float: right;
+			width: 200px;
+		}
+		.right_float3{
+			margin-right:200px;
+		}
+		.three_wrap{
+			float: left;
+			width: 100%;
+			margin-bottom: 20px;
+		}
+		.two_wrap1{
+		float: left;
+		width: 100%;
+		margin-right:-210px;
+		}
+		.left_float4{
+			float: left;
+			width: 200px;
+		}
+		.middle_float4{
+		margin-left: 200px;
+		margin-right: 210px;
+		}
+		.two_wrap2{
+			float: left;
+			width: 400px;
+		}
+		.left_float5{
+			width: 200px;
+			float: left;
+		}
+		.right_float5{
+			margin-left: 400px;
+		}
+		/*position布局*/
+		.relative{
+			position: relative;
+		}
+		.father_position1{
+			position: relative;
+			width: 100%;
+			margin-bottom: 20px;
+			/*top: 10px;*/
+		}
+		.father_position2{
+			position: relative;
+			width: 100%;
+			margin-bottom: 20px;
+			/*top: 250px;*/
+		}
+		.father_position3{
+			position: relative;
+			width: 100%;
+			margin-bottom: 20px;
+			/*top:290px;*/
+		}
+		.father_position4{
+			position: relative;
+			width: 100%;
+			margin-bottom: 20px;
+			/*top: 330px;*/
+		}
+		.left_position1{
+			position: absolute;
+			left: 0;
+			width: 30%
+		}
+		.right_position1{
+			position: absolute;
+			right: 0;
+			width: 70%;
+		}
+		.left_position2{
+			position: absolute;
+			left: 0;
+			width: 200px;
+		}
+		.right_position2{
+			margin-left: 200px;
+		}
+		.left_position3{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 200px;
+		}
+		.right_position3{
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 200px;
+		}
+		.middle_position3{
+			margin: 0 200px;
+		}
+		.left_position4{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 200px;
+		}
+		.middle_position4{
+			position: absolute;
+			top: 0;
+			left: 200px;
+			width: 200px;
+		}
+		.right_position4{
+			margin-left: 400px;
+		}
+		/*flex布局*/
+		.father_flex{
+			display: flex;
+			width: 100%;
+			margin-bottom:20px;
+		}
+		.left_flex1{
+			width: 30%;
+		}
+		.right_flex1{
+			width: 70%;
+		}
+		.left_flex2{
+			width: 200px;
+		}
+		.right_flex2{
+			flex:1;
+		}
+		.left_flex3{
+			flex: 1;
+		}
+		.right_flex3{
+			width: 200px;
+		}
+		.left_flex4{
+			width: 200px;
+		}
+		.middle_flex4{
+			flex: 1;
+		}
+		.right_flex4{
+			width: 200px;
+		}
+		.left_flex5{
+			width: 200px;
+		}
+		.middle_flex5{
+			width:200px;
+		}
+		.right_flex5{
+			flex: 1;
+			
+		}
+	</style>
+</head>
+<body>
+	<h1>float布局</h1>
+	<article>
+	<h2>两栏布局</h2>
+	<div class="father_float">
+		<div class="left left_float1 box"></div>
+		<div class="right right_float1 box"></div>
+	</div>
+	<div class="father_float">
+		<div class="left left_float2 box"></div>
+		<div class="right right_float2 box"></div>
+	</div>
+	<div class="father_float">
+		<div class="left left_float3 box"></div>
+		<div class="right right_float3 box"></div>
+	</div>
+	</article>
+	<article>
+	<h2>三栏布局</h2>
+	<div class="three_wrap">
+	<div class="two_wrap1">
+		<div class="left box left_float4"></div>
+		<div class="middle middle_float4 box"></div>
+	</div>
+	<div class="right box right_float4"></div>
+	</div>
+	<div class="three_wrap">
+	<div class="two_wrap2">
+		<div class="left box left_float5"></div>
+		<div class="middle middle_float5 box"></div>
+	</div>
+	<div class="right box right_float5"></div>
+	</div>
+	</article>
+	<h1>position布局</h1>
+	<article  class="relative">	
+	<div class="father_position1 box">
+		<div class="left box left_position1"></div>
+		<div class="right box right_position1"></div>
+		</div>
+		<div class="father_position2">
+		<div class="left box left_position2"></div>
+		<div class="right box right_position2"></div>
+		</div>
+	<div class="father_position3">
+		<div class="left box left_position3"></div>
+		<div class="middle box middle_position3"></div>
+		<div class="right box right_position3"></div>
+	</div>
+	<div class="father_position4">
+		<div class="left box left_position4"></div>
+		<div class="middle box middle_position4"></div>
+		<div class="right box right_position4"></div>
+	</div>
+	</article>
+	<h1>flexbox布局</h1>
+	<article>
+	<div class="father_flex">
+		<div class="left box left_flex1"></div>
+		<div class="right box right_flex1"></div>
+	</div>
+	</article>
+	<article>
+	<div class="father_flex">
+		<div class="left box left_flex2"></div>
+		<div class="right box right_flex2"></div>
+	</div>
+	</article>
+	<article>
+	<div class="father_flex">
+		<div class="left box left_flex3"></div>
+		<div class="right box right_flex3"></div>
+	</div>
+	</article>
+	<article>
+	<div class="father_flex">
+		<div class="left box left_flex4"></div>
+		<div class="middle box middle_flex4">	</div>
+		<div class="right box right_flex4"></div>
+	</div>
+	</article>
+	<article>
+	<div class="father_flex">
+		<div class="left box left_flex5"></div>
+		<div class="middle box middle_flex5">	</div>
+		<div class="right box right_flex5"></div>
+	</div>
+	</article>
+</body>
+</html>

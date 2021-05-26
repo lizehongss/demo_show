@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>购物车</title>
+	<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+	<div id="app" v-cloak>
+		<!-- //v-cloak未加载前隐藏div -->
+		<template v-if="list.length">
+			<table>
+				<thead>
+							<tr>
+							<th>
+						<input type="checkbox" @click="handleAll"
+						>全选
+						</th>
+							<th>商品名称</th>
+							<th>商品单价</th>
+							<th>商品分类</th>
+							<th>购买数量</th>
+							<th>操作</th>
+							</tr>
+				</thead>
+				<tbody>
+					<tr v-for="(item, index) in list">
+						<td>
+							<input type="checkbox" @click="chose(index)"
+						 	:checked="ischecked(index)"
+							></td>
+						<td>{{item.name}}</td>
+						<td>{{item.price}}</td>
+						<td>
+							<button @click="handleReduce(index)"
+							:disabled="item.count===1"
+							>-</button>
+							{{item.count}}
+							<button @click="handleAdd(index)">+</button>
+						</td>
+						<td>
+							<button @click="handleRemove(index)">移除</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div>总价：￥{{totalPrice}}</div>
+		</template>
+		<div v-else>购物车为空</div>
+			
+	</div>
+	<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+	<script src="index.js"></script>
+</body>
+</html>

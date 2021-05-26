@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>任务四</title>
+    <meta charset="utf-8">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li{
+            display: inline-block;
+            width: 30px;
+            background: red;
+            color: #fff;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<input type="text" id="text">
+<button id="left_in">左侧入</button>
+<button id="right_in">右侧入</button>
+<button id="left_out">左侧出</button>
+<button id="right_out">右侧出</button>
+<button id="sort">排序</button>
+<ul id="ul">
+</ul>
+<script>
+    var left_in = document.getElementById("left_in");
+    var right_in = document.getElementById("right_in");
+    var left_out = document.getElementById("left_out");
+    var right_out = document.getElementById("right_out");
+    var ul = document.getElementById("ul");
+    var text = document.getElementById("text");
+    var numlist = document.getElementById("ul");
+    var liList = numlist.getElementsByTagName("li");
+    //var num = text.value;
+    var sortBtn = document.getElementById("sort");
+
+    left_in.onclick = function (){
+        if(liList.length>59){
+        alert("队列元素数量最多限制为60个")}
+       else if(text.value==""){
+            alert("请输入一个数字")
+        }
+        else  if(!isNaN(text.value)){
+        //var li_text = document.createTextNode(text.value);
+        var li = document.createElement("li");
+        //li.appendChild(li_text);
+            li.style.height=text.value + "px";
+        ul.insertBefore(li,ul.firstChild);
+            text.value = "";
+    }
+        else {
+        alert("格式不对，请你输入一个数字")}
+    }
+    right_in.onclick = function (){
+        if(liList.length>59){
+            alert("队列元素数量最多限制为60个")
+        }
+       else if(text.value==""){
+            alert("请输入一个数字")
+        }
+        else  if(!isNaN(text.value)){
+           // var li_text = document.createTextNode(text.value);
+            var li = document.createElement("li");
+            li.style.height=text.value+"px";
+           // li.appendChild(li_text);
+            ul.appendChild(li);
+            text.value="";
+        }
+        else {
+            alert("格式不对，请你输入一个数字")}
+
+    }
+    left_out.onclick = function (){
+        ul.firstChild.remove();
+        alert(ul.firstChild.childNodes);
+    }
+    right_out.onclick = function () {
+        ul.lastChild.remove();
+        alert(ul.firstChild.childNodes);
+    }
+    numlist.addEventListener("click",function (e) {
+        if(event.target.nodeName.toLowerCase()=="li"){
+            console.log(event.target);
+//	event.target.parentNode.removeChild(event.target);
+            numlist.removeChild(event.target);
+        }
+    })
+    function mysort() {
+        if(liList.length<=1){
+            return liList;
+        };
+        var temp=[];
+        for(var i=0;i<liList.length;i++){
+            var m = liList[i].style.height;
+            m=m.replace("px","");
+            temp.push(m);
+        }
+        temp.sort(function (a,b){
+            return a-b;
+        });
+        for (var n=0;n<temp.length;n++){
+            liList[n].style.height=temp[n]+"px";
+        }
+            return liList;
+    }
+    sortBtn.addEventListener('click',mysort);
+</script>
+</body>
+</html>

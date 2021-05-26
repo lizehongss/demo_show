@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>留言列表</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="app" v-cloak style="width: 500px;margin:0 auto;">
+		<div class="message">
+			<v-input v-model='username'></v-input>
+			<v-textarea v-model='message' ref="message"></v-textarea>
+			<button @click="handleSend">发布</button>
+		</div>
+		<list :list="list" @reply="handleReply"></list>
+		<p>使用templete</p><br>
+		<div class="message">
+		<v-inputs v-model='username'></v-inputs>
+			<v-textareas v-model='message' ref="message"></v-textareas>
+			<button @click="handleSend">发布</button>
+		</div>
+		<lists :list="list" @reply="handleReply"></lists>
+	</div>
+	<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+	<script src="input.js"></script>
+	<script src="list.js"></script>
+	<script src="index.js"></script>
+</body> 
+</html>

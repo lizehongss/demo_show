@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>可排序的表格组件</title>
+	<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+	<div id="app" v-cloak>
+		使用render:
+		<v-table :data="data" :columns="columns" :val="value"></v-table>
+		<button @click="handleAddData">添加数据</button>
+		列宽为：
+		<input type="text" v-model="value">
+		<br>
+		使用template:
+		<v-tablet :data='data' :columns="columns" :val="value"></v-tablet>
+	</div>
+	<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+	<script src="table.js"></script>
+	<script src="tablet.js"></script>
+	<script src="index.js"></script>
+</body>
+</html>
